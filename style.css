@@ -1,0 +1,25 @@
+    .container {
+        background-color: grey;
+        opacity: 50%;
+        width: 640px;
+        height: 640px;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .sq {
+        background-color: blue;
+        height: 6%;
+        width: 6%;
+    }
+    
+    .mouseover {
+        background-color: black;
+    }
+    
+    body {
+        margin: 150px;
+        display: flex;
+    }
