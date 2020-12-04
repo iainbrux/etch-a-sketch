@@ -28,4 +28,13 @@ function createDivs(numOfDivs) {
 
 };
 
+function resetDivs() {
+
+    let div = document.querySelectorAll('.mouseover');
+    for (let i = 0; i <= div.length - 1; i++) {
+        div[i].classList.remove('mouseover');
+    }
+
+}
+
 createDivs(userInput);

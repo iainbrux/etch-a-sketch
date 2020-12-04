@@ -11,6 +11,12 @@
         min-height: 640px;
     }
     
+    .reset-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
     .sq {
         background-color: blue;
         border: 1px solid black;
