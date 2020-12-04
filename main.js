@@ -1,6 +1,14 @@
 let container = document.querySelector('.container');
 
-// Creates div squares based off user input
+let userInput = prompt("Please enter a number up to and including 64.", 16);
+
+if (userInput > 64) {
+    alert("Number is over specified limit. Please enter a number up to 64.");
+    userInput = 16; // sets the default square size to 16
+}
+
+// Function takes the userInput and creates the number of divs respective to the sqaure of that number
+// and then calculates the square size in px to prevent overflow from the container
 
 function createDivs(numOfDivs) {
 
@@ -16,8 +24,8 @@ function createDivs(numOfDivs) {
         div.addEventListener("mouseover", function() {
             div.className = "sq mouseover";
         });
-    }
+    };
 
-}
+};
 
-createDivs(64);
+createDivs(userInput);
