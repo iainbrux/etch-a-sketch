@@ -26,6 +26,8 @@
         background-color: black;
     }
     
+    .active-button {}
+    
     body {
         margin: 150px;
         display: flex;
