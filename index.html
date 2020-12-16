@@ -5,18 +5,33 @@
 
 <body>
     <div class="controls">
-        <div class="grid-size">
-            <button type="button" onclick="sixteen();">16 x 16</button>
-            <button type="button" onclick="thirtyTwo();">32 x 32</button>
-            <button type="button" onclick="sixtyFour();">64 x 64</button>
-            <input type="radio" id="rgb-button" name="color-select" />
+        <div class="select-size">
+            <input type="range" id="size-slider" name="grid-size" min="8" max="100" value="16" step="1" />
+            <label for="size-slider">Choose your own grid size</label>
+            <input type="radio" id="sixteen" name="grid-size" value="16">
+            <label for="sixteen">16 x 16</label>
+            <input type="radio" id="thirty-two" name="grid-size" value="32">
+            <label for="thirty-two">32 x 32</label>
+            <input type="radio" id="sixty-four" name="grid-size" value="64">
+            <label for="sixty-four">64 x 64</label>
+      </div>
+      <div class="select-colors">
+            <input type="radio" id="rgb-button" name="color-select">
             <label for="rgb-button">RGB!</label>
-            <input type="radio" id="blue-button" name="color-select" />
+            <input type="radio" id="blue-button" name="color-select">
             <label for="blue-button">Blue</label>
+            <input type="radio" id="red-button" name="color-select">
+            <label for="red-button">Red</label>
+            <input type="radio" id="yellow-button" name="color-select">
+            <label for="yellow-button">Yellow</label>
         </div> 
-    </div>
-    <div class="button-div">
+    <div class="clear-grid">
+        <!-- 
         <button class="reset-button" onclick="resetDivs()">RESET</button>
+        -->
+        <input type="button" id="reset-button" name="grid-clear">
+        <label for="reset-button">Clear</label>
+    </div>
     </div>
 
     <div class="container-div">
