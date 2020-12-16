@@ -1,8 +1,16 @@
-let container = document.getElementById('container');
-let rgbButton = document.getElementById('rgb-button');
-let blueButton = document.getElementById('blue-button');
+//Variables
 
-let userInput = 32;
+let container = document.getElementById('container');
+
+const rgbButton = document.getElementById('rgb-button');
+const blueButton = document.getElementById('blue-button');
+const redButton = document.getElementById('red-button');
+const yellowButton = document.getElementById('yellow-button');
+
+const sixteen = document.getElementById('sixteen').value;
+const thirtyTwo = document.getElementById('thirty-two').value;
+const sixtyFour = document.getElementById('sixty-four').value;
+let userInput = document.getElementById('size-slider').value;
 
 //Conditionals 
 
