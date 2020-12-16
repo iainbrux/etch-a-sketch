@@ -1,7 +1,10 @@
 let container = document.getElementById('container');
 let rgbButton = document.getElementById('rgb-button');
+let blueButton = document.getElementById('blue-button');
 
 let userInput = 32;
+
+//Conditionals 
 
 if (userInput > 64 || userInput < 0) {
     alert("Number is over specified limit. Please enter a number up to 64.");
@@ -10,9 +13,7 @@ if (userInput > 64 || userInput < 0) {
     userInput = 16;
 }
 
-
-// Function takes the userInput and creates the number of divs respective to the sqaure of that number
-// and then calculates the square size in px to prevent overflow from the container
+// Functions
 
 function createDivs(userInput) {
 
@@ -65,26 +66,28 @@ function removeDivs() {
 
 }
 
-rgbButton.addEventListener("click", function rgbAdd() {
+function rgbAdd() {
 
-    let square = document.querySelectorAll('.sq');
+    let square = document.querySelectorAll('.rgb');
+    square.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
 
-    for (i = 0; i < square.length; i++) {
-
-        square[i].classList.add('rgb-' + i);
-
-        square[i].addEventListener("mouseover", function() {
-            for (j = 0; j < square.length; j++) {
-                let r = Math.floor(Math.random() * 255);
-                let g = Math.floor(Math.random() * 255);
-                let b = Math.floor(Math.random() * 255);
-
-                square[j].style.backgroundColor = 'rgba(' + r + ', ' + g + ', ' + b + ', 255)';
-            }
+            item.style.backgroundColor = 'rgba(' + r + ', ' + g + ', ' + b + ', 255)';
         });
-        // look to find a way to change global CSS rule for this line above as opposed to inline-style for HTML
-    }
-});
+    });
+}
+
+function blueAdd() {
+    let square = document.querySelectorAll('.blue');
+    square.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = 'blue';
+        });
+    });
+}
 
 function sixteen() {
     removeDivs();
@@ -100,6 +103,26 @@ function sixtyFour() {
     removeDivs();
     createDivs(64);
 }
+
+//Events
+
+rgbButton.addEventListener("click", function() {
+    let square = document.querySelectorAll('.sq');
+    for (i = 0; i < square.length; i++) {
+        square[i].classList.add("rgb");
+    }
+    rgbAdd();
+})
+
+blueButton.addEventListener("click", function() {
+    let square = document.querySelectorAll('.sq');
+    for (i = 0; i < square.length; i++) {
+        square[i].classList.add("blue");
+    }
+    blueAdd();
+})
+
+//Calls
 
 createDivs(16);
 
