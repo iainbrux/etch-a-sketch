@@ -6,11 +6,15 @@ const rgbButton = document.getElementById('rgb-button');
 const blueButton = document.getElementById('blue-button');
 const redButton = document.getElementById('red-button');
 const yellowButton = document.getElementById('yellow-button');
+const clearButton = document.getElementById('reset-button');
+const sixteenButton = document.getElementById('sixteen');
+const thirtyTwoButton = document.getElementById('thirty-two');
+const sixtyFourButton = document.getElementById('sixty-four');
 
-const sixteen = document.getElementById('sixteen').value;
-const thirtyTwo = document.getElementById('thirty-two').value;
-const sixtyFour = document.getElementById('sixty-four').value;
-let userInput = document.getElementById('size-slider').value;
+let userInput = document.getElementById('size-slider');
+const userInputDefault = 16;
+let sizeValue = document.getElementById('size-value');
+let getColor = 'grey';
 
 //Conditionals 
 
@@ -26,7 +30,7 @@ if (userInput > 64 || userInput < 0) {
 function createDivs(userInput) {
 
     const numOfSquares = userInput * userInput;
-    const size = (640 / userInput) - 2;
+    const size = (720 / userInput) - 2;
 
     for (let i = 1; i <= numOfSquares; i++) {
         let div = document.createElement('div');
@@ -36,8 +40,8 @@ function createDivs(userInput) {
         div.style.backgroundColor = 'rgba(255, 255, 255, 255)';
         container.appendChild(div);
         div.addEventListener("mouseover", function() {
-            div.className = "sq mouseover active-button"
-            div.style.backgroundColor = 'grey';
+            div.className = "sq mouseover active-button";
+            div.style.backgroundColor = getColor;
         });
     }
 
@@ -84,6 +88,7 @@ function rgbAdd() {
             let b = Math.floor(Math.random() * 255);
 
             item.style.backgroundColor = 'rgba(' + r + ', ' + g + ', ' + b + ', 255)';
+
         });
     });
 }
@@ -94,23 +99,30 @@ function blueAdd() {
         item.addEventListener("mouseover", () => {
             item.style.backgroundColor = 'blue';
         });
+        //getColor = 'blue';
     });
 }
 
-function sixteen() {
-    removeDivs();
-    createDivs(16);
+function redAdd() {
+    let square = document.querySelectorAll('.red');
+    square.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = 'red';
+        });
+        //getColor = 'red';
+    });
 }
 
-function thirtyTwo() {
-    removeDivs();
-    createDivs(32);
+function yellowAdd() {
+    let square = document.querySelectorAll('.yellow');
+    square.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = 'yellow';
+        });
+        //getColor = 'yellow';
+    });
 }
 
-function sixtyFour() {
-    removeDivs();
-    createDivs(64);
-}
 
 //Events
 
@@ -130,10 +142,49 @@ blueButton.addEventListener("click", function() {
     blueAdd();
 })
 
+redButton.addEventListener("click", function() {
+    let square = document.querySelectorAll('.sq');
+    for (i = 0; i < square.length; i++) {
+        square[i].classList.add("red");
+    }
+    redAdd();
+})
+
+yellowButton.addEventListener("click", function() {
+    let square = document.querySelectorAll('.sq');
+    for (i = 0; i < square.length; i++) {
+        square[i].classList.add("yellow");
+    }
+    yellowAdd();
+})
+
+clearButton.addEventListener("click", function() {
+    resetDivs();
+});
+
+sixteenButton.addEventListener("click", function() {
+    removeDivs();
+    createDivs(16);
+});
+
+thirtyTwoButton.addEventListener("click", function() {
+    removeDivs();
+    createDivs(32);
+});
+
+sixtyFourButton.addEventListener("click", function() {
+    removeDivs();
+    createDivs(64);
+});
+
+sizeValue.innerHTML = userInput.value;
+
+userInput.oninput = function() {
+    sizeValue.innerHTML = this.value;
+    removeDivs();
+    createDivs(this.value);
+}
+
 //Calls
 
-createDivs(16);
-
-// I need to create a function that when mouseover a div randomly sets an rgb value
-// with this I need a button that will attach a function to the mouseover
-//
+createDivs(userInputDefault);

@@ -5,10 +5,10 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        width: 640px;
-        height: 640px;
-        min-width: 640px;
-        min-height: 640px;
+        width: 720px;
+        height: 720px;
+        min-width: 720px;
+        min-height: 720px;
     }
     
     .reset-button {
