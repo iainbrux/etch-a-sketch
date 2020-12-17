@@ -16,15 +16,6 @@ const userInputDefault = 16;
 let sizeValue = document.getElementById('size-value');
 let getColor = 'grey';
 
-//Conditionals 
-
-if (userInput > 64 || userInput < 0) {
-    alert("Number is over specified limit. Please enter a number up to 64.");
-    userInput = prompt('Please enter a number up to  and including 64.');
-} else if (userInput == undefined) {
-    userInput = 16;
-}
-
 // Functions
 
 function createDivs(userInput) {
@@ -99,7 +90,6 @@ function blueAdd() {
         item.addEventListener("mouseover", () => {
             item.style.backgroundColor = 'blue';
         });
-        //getColor = 'blue';
     });
 }
 
@@ -109,7 +99,6 @@ function redAdd() {
         item.addEventListener("mouseover", () => {
             item.style.backgroundColor = 'red';
         });
-        //getColor = 'red';
     });
 }
 
@@ -119,43 +108,84 @@ function yellowAdd() {
         item.addEventListener("mouseover", () => {
             item.style.backgroundColor = 'yellow';
         });
-        //getColor = 'yellow';
     });
 }
 
+function start() {
+    sizeButtonChecked();
+    colorButtonChecked();
+}
+
+//Conditional Functions
+
+function colorButtonChecked() {
+    if (blueButton.checked) {
+        let square = document.querySelectorAll('.sq');
+        for (i = 0; i < square.length; i++) {
+            square[i].classList.add("blue");
+        }
+        blueAdd();
+    } else if (redButton.checked) {
+        let square = document.querySelectorAll('.sq');
+        for (i = 0; i < square.length; i++) {
+            square[i].classList.add("red");
+        }
+        redAdd();
+    } else if (yellowButton.checked) {
+        let square = document.querySelectorAll('.sq');
+        for (i = 0; i < square.length; i++) {
+            square[i].classList.add("yellow");
+        }
+        yellowAdd();
+    } else if (rgbButton.checked) {
+        let square = document.querySelectorAll('.sq');
+        for (i = 0; i < square.length; i++) {
+            square[i].classList.add("rgb");
+        }
+        rgbAdd();
+    }
+}
+
+function sizeButtonChecked() {
+    if (sixteenButton.checked) {
+        userInput = '16';
+        removeDivs();
+        createDivs(userInput);
+    } else if (thirtyTwoButton.checked) {
+        userInput = '32';
+        removeDivs();
+        createDivs(userInput);
+    } else if (sixtyFourButton.checked) {
+        userInput = '64';
+        removeDivs();
+        createDivs(userInput);
+    } else {
+        userInput = document.getElementById('size-slider');
+        createDivs(userInput);
+    }
+
+}
 
 //Events
 
 rgbButton.addEventListener("click", function() {
-    let square = document.querySelectorAll('.sq');
-    for (i = 0; i < square.length; i++) {
-        square[i].classList.add("rgb");
-    }
-    rgbAdd();
+    rgbButton.checked = "true";
+    colorButtonChecked();
 })
 
 blueButton.addEventListener("click", function() {
-    let square = document.querySelectorAll('.sq');
-    for (i = 0; i < square.length; i++) {
-        square[i].classList.add("blue");
-    }
-    blueAdd();
+    blueButton.checked = "true";
+    colorButtonChecked();
 })
 
 redButton.addEventListener("click", function() {
-    let square = document.querySelectorAll('.sq');
-    for (i = 0; i < square.length; i++) {
-        square[i].classList.add("red");
-    }
-    redAdd();
+    redButton.checked = "true";
+    colorButtonChecked();
 })
 
 yellowButton.addEventListener("click", function() {
-    let square = document.querySelectorAll('.sq');
-    for (i = 0; i < square.length; i++) {
-        square[i].classList.add("yellow");
-    }
-    yellowAdd();
+    yellowButton.checked = "true";
+    colorButtonChecked();
 })
 
 clearButton.addEventListener("click", function() {
@@ -163,18 +193,21 @@ clearButton.addEventListener("click", function() {
 });
 
 sixteenButton.addEventListener("click", function() {
-    removeDivs();
-    createDivs(16);
+    sixteenButton.checked = "true";
+    sizeButtonChecked();
+    colorButtonChecked();
 });
 
 thirtyTwoButton.addEventListener("click", function() {
-    removeDivs();
-    createDivs(32);
+    thirtyTwoButton.checked = "true";
+    sizeButtonChecked();
+    colorButtonChecked();
 });
 
 sixtyFourButton.addEventListener("click", function() {
-    removeDivs();
-    createDivs(64);
+    sixtyFourButton.checked = "true";
+    sizeButtonChecked();
+    colorButtonChecked();
 });
 
 sizeValue.innerHTML = userInput.value;
@@ -183,8 +216,9 @@ userInput.oninput = function() {
     sizeValue.innerHTML = this.value;
     removeDivs();
     createDivs(this.value);
+    colorButtonChecked();
 }
 
 //Calls
 
-createDivs(userInputDefault);
+start();
