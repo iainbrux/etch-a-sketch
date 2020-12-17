@@ -14,7 +14,7 @@ const sixtyFourButton = document.getElementById('sixty-four');
 let userInput = document.getElementById('size-slider');
 const userInputDefault = 16;
 let sizeValue = document.getElementById('size-value');
-let getColor = 'grey';
+let getColor = 'rgba(128, 128, 128, 0.2)';
 
 // Functions
 

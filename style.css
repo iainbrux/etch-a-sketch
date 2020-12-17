@@ -1,6 +1,6 @@
 #container {
-    background-color: grey;
-    opacity: 50%;
+    background-color: rgba(128, 128, 128, 0.2);
+    opacity: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -18,8 +18,7 @@
 }
 
 .sq {
-    background-color: blue;
-    border: 1px solid black;
+    border: 1px solid rgba(128, 128, 128, 0.5);
 }
 
 .mouseover {
@@ -28,12 +27,13 @@
 
 .container-div {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-content: center;
 }
 
 .grid {
-    margin: 50px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     align-content: flex-start;
@@ -49,6 +49,33 @@
 .controls {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 155px;
+}
+
+.range-header {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    min-width: 250px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.range-header-size {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+}
+
+.selection-header {
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    min-width: 250px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 header {
@@ -56,6 +83,19 @@ header {
     align-content: center;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    color: #01cc65;
+}
+
+.clear-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.clear-grid-header {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
 }
 
 input[type="radio"] {
@@ -71,16 +111,23 @@ label {
     padding: 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 
 label:before {
     content: "";
-    height: 14px;
-    width: 14px;
-    border: 6px solid #01cc65;
     border-radius: 50%;
-    margin-right: 20px;
+    margin-right;
+    background-color: white;
+    transition-duration: 0.4s;
+}
+
+label:hover {
+    background-color: #01cc65;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 input[type="radio"]:checked+label {
@@ -89,23 +136,77 @@ input[type="radio"]:checked+label {
 }
 
 input[type="radio"]:checked+label:before {
-    height: 14px;
-    width: 14px;
-    border: 6px solid white;
     background-color: #01cc65;
 }
 
 p {
     font-family: 'Poppins', sans-serif;
+    color: #01cc65;
 }
 
-input[type="range" i] {
-    appearance: slider-horizontal;
-    color: rgb(157, 150, 142);
-    cursor: default;
-    padding: initial;
-    border: initial;
-    margin: 2px;
-    min-width: 300px;
+input[type=range] {
+    width: 100%;
+    margin: 7.3px 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    background: #01cc65;
+    border: 0.2px solid #01cc65;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 11.4px;
     cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    margin-top: -7.5px;
+    width: 26px;
+    height: 26px;
+    background: #ffffff;
+    border: 1.8px solid #01cc65;
+    border-radius: 15px;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #01cc65;
+}
+
+input[type="range"]:hover::-webkit-slider-runnable-track {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+input[type="button"] {
+    background-color: #ffffff;
+    color: #01cc65;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border: 2px solid #01cc65;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 20px;
+    outline: none;
+}
+
+input[type="button"]:hover {
+    background-color: #01cc65;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+input[type="button"]:focus {
+    border-color: #01cc65;
 }
