@@ -13,7 +13,9 @@ const sixtyFourButton = document.getElementById('sixty-four');
 
 let userInput = document.getElementById('size-slider');
 const userInputDefault = 16;
+let userInputColor = document.getElementById('color-picker');
 let sizeValue = document.getElementById('size-value');
+let colorValue = document.getElementById('color-value');
 let getColor = 'rgba(128, 128, 128, 0.2)';
 
 // Functions
@@ -107,6 +109,15 @@ function yellowAdd() {
     square.forEach(item => {
         item.addEventListener("mouseover", () => {
             item.style.backgroundColor = 'yellow';
+        });
+    });
+}
+
+function userColorAdd() {
+    let square = document.querySelectorAll('.user-color');
+    square.forEach(item => {
+        item.addEventListener("mouseover", () => {
+            item.style.backgroundColor = userInputColor.value;
         });
     });
 }
@@ -210,6 +221,8 @@ sixtyFourButton.addEventListener("click", function() {
     colorButtonChecked();
 });
 
+//User defined functions
+
 sizeValue.innerHTML = userInput.value;
 
 userInput.oninput = function() {
@@ -217,6 +230,17 @@ userInput.oninput = function() {
     removeDivs();
     createDivs(this.value);
     colorButtonChecked();
+}
+
+colorValue.innerHTML = userInputColor.value;
+
+userInputColor.oninput = function() {
+    colorValue.innerHTML = this.value;
+    let square = document.querySelectorAll('.sq');
+    for (i = 0; i < square.length; i++) {
+        square[i].classList.add("user-color");
+    }
+    userColorAdd();
 }
 
 //Calls

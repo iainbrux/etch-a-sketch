@@ -33,6 +33,12 @@
                 <input type="radio" id="yellow-button" name="color-select">
                 <label for="yellow-button">Yellow</label>
                 <br>
+                <p class="range-header">Choose your own grid size</p>
+                <input type="range" id="size-slider" name="grid-size" min="8" max="100" value="16" step="1" />
+                <p class="range-header-size">Size: <span id="size-value" class="range-header-size"></span></p>
+                <p class="color-header">Choose your own color</p>
+                <input type="color" id="color-picker">
+                <p class="range-header-size">Hex: <span id="color-value" class="range-header-size"></span></p>
                 <div class="clear-grid">
                     <p class="clear-grid-header">Clear grid</p>
                     <input type="button" id="reset-button" name="grid-clear" value="Clear">
@@ -44,9 +50,6 @@
             <div id="container">
 
             </div>
-            <p class="range-header">Choose your own grid size</p>
-            <input type="range" id="size-slider" name="grid-size" min="8" max="100" value="16" step="1" />
-            <p class="range-header-size">Size: <span id="size-value" class="range-header-size"></span></p>
         </div>
     </div>
 

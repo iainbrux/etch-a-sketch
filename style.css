@@ -11,10 +11,8 @@
     min-height: 720px;
 }
 
-.reset-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/email-pattern.png");
 }
 
 .sq {
@@ -28,15 +26,14 @@
 .container-div {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
 }
 
 .grid {
-    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
-    align-content: flex-start;
+    align-items: space-around;
 }
 
 .clear-grid {
@@ -51,7 +48,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    padding-bottom: 155px;
+    min-width: 250px;
 }
 
 .range-header {
@@ -98,6 +95,12 @@ header {
     font-weight: bold;
 }
 
+.color-header {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
 input[type="radio"] {
     display: none;
 }
@@ -114,12 +117,12 @@ label {
     justify-content: center;
     cursor: pointer;
     transition-duration: 0.4s;
+    background-color: white;
 }
 
 label:before {
     content: "";
     border-radius: 50%;
-    margin-right;
     background-color: white;
     transition-duration: 0.4s;
 }
@@ -209,4 +212,13 @@ input[type="button"]:hover {
 
 input[type="button"]:focus {
     border-color: #01cc65;
+}
+
+input[type="color"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    outline: none;
+    border: none;
 }
