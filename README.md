@@ -10,13 +10,6 @@ What I learned:
 
 I really dug deep into DOM manipulation with this project, plenty of hours spent researching(*cough* googling *cough*), asking questions to the TOP discord as well as friends who are senior software engineers. I learned that ES5 was also limiting some of the functions I wanted to write in my main.js file and hence I had to study, learn and write some functions in ES6. I haven't fully yet dived into ES6 but it is next on TOP's syllabus. I learned that it's important to research in the correct way, and also how to break down one big problem into smaller problems which then once completed bit-by-bit come together to complete the big problem. I also learned some self-discipline and time-management as well as the fact that I can put my mind to something and complete it, which is a big personal achievement for myself too. 
 
-What I enjoyed:
-
-I enjoyed writing the main.js file the most out of it all, and I feel like JavaScript is a language I will really want to study and learn plenty of libraries for for my front-end developer career.
-
-What I didn't enjoy as much:
-
-Writing the HTML and CSS. I feel that I didn't enjoy this as much because I haven't fully dived into HTML or CSS as much as JavaScript yet and at times felt a bit lost. Thankfully, researching the problems I had helped me understand what I wasn't doing correctly and in turn allowed me to correct my mistakes. As I complete The Odin Project there is a massive module on just purely HTML and CSS which once I have completed, I am certain will make me understand into more depth about these two languages.
 
 -- FUTURE PLANS --
 
